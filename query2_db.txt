@@ -24,9 +24,9 @@ SELECT COUNT(*) 'numero corsi', department_id 'dipartimento' FROM `degrees` GROU
 
 1. Selezionare tutti gli studenti iscritti al Corso di Laurea in Economia
 
-SELECT DISTINCT students.name,students.surname FROM students JOIN degrees on students.degree_id = degrees.id JOIN courses on courses.degree_id = degrees.id where courses.degree_id= 53;
+SELECT  students.name,students.surname FROM students JOIN degrees on students.degree_id = degrees.id JOIN courses on courses.degree_id = degrees.id where courses.degree_id= 53;
 
-SELECT DISTINCT students.name 'nome',students.surname 'cognome' FROM students JOIN degrees on students.degree_id = degrees.id JOIN courses on courses.degree_id = degrees.id where degrees.name like 'Corso di Laurea in Economia';
+SELECT students.name 'nome',students.surname 'cognome' FROM students JOIN degrees on students.degree_id = degrees.id where degrees.name like 'Corso di Laurea in Economia';
 
 2. Selezionare tutti i Corsi di Laurea Magistrale del Dipartimento di Neuroscienze
 
@@ -54,4 +54,4 @@ SELECT teachers.name 'nome',teachers.surname 'cognome' from departments JOIN deg
 Bonus:
 
 
-SELECT COUNT(exam_student.student_id) 'num_tentativi', students.name 'nome', students.surname 'cognome' FROM `exam_student` join students on students.id=exam_student.student_id GROUP BY student_id;
+SELECT COUNT(exam_student.student_id) 'num_tentativi',FLOOR(AVG(vote)) 'media_voto', students.name 'nome', students.surname 'cognome' FROM `exam_student` join students on students.id=exam_student.student_id GROUP BY student_id;
