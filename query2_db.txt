@@ -46,9 +46,9 @@ SELECT degrees.name 'corso Laurea', courses.name 'nome corso', teachers.name 'no
 ​
 6. Selezionare tutti i docenti che insegnano nel Dipartimento di Matematica (54)
 
-SELECT teachers.name 'nome',teachers.surname 'cognome' FROM course_teacher JOIN teachers on course_teacher.teacher_id=teachers.id WHERE course_teacher.course_id BETWEEN 466 and 535;
+SELECT DISTINCT teachers.name 'nome',teachers.surname 'cognome' FROM course_teacher JOIN teachers on course_teacher.teacher_id=teachers.id WHERE course_teacher.course_id BETWEEN 466 and 535;
 
-SELECT teachers.name 'nome',teachers.surname 'cognome' from departments JOIN degrees on departments.id=degrees.department_id JOIN courses on courses.degree_id = degrees.id join course_teacher ON course_teacher.course_id=courses.id JOIN teachers on course_teacher.teacher_id=teachers.id where departments.name LIKE 'Dipartimento di Matematica';
+SELECT DISTINCT teachers.name 'nome',teachers.surname 'cognome' from departments JOIN degrees on departments.id=degrees.department_id JOIN courses on courses.degree_id = degrees.id join course_teacher ON course_teacher.course_id=courses.id JOIN teachers on course_teacher.teacher_id=teachers.id where departments.name LIKE 'Dipartimento di Matematica';
 
 
 Bonus:
